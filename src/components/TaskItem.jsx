@@ -6,9 +6,14 @@ const TaskItem = React.memo(function TaskItem(props) {
     const { item } = props;
     const dispatch = useDispatch();
     const [isEdit,setIsEdit] = useState(true);
-    const [itemEdit,setItemEdit] = useState(null);
+    const [itemEdit,setItemEdit] = useState({...item});
 
+    useEffect(()=>{
+        console.log('a' + itemEdit);
+    },[itemEdit])
 
+    //console.log({item,itemEdit});
+    // console.log(`${item.name} render`)
     const DeleteHandle = () =>{
         dispatch(actions.deleteTaskRequest(item.id));
     }
@@ -16,8 +21,13 @@ const TaskItem = React.memo(function TaskItem(props) {
         dispatch(actions.ChangeStatusRequest({...item,status: item.status === 0 ? 1 : 0}));
     }
 
+    console.log(`${item.name} render`)
+    // useEffect(()=>{
+    //     setItemEdit({...item})
+    // },[item])
+
     const EditHandle = () =>{
-        setItemEdit({...item})
+        //setItemEdit({...item})
         setIsEdit(!isEdit);
     }
     const ChangeHandleItemEdit = (e) =>{

@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState,Suspense, useEffect  } from 'react';
 import './style.css';
 import TaskList from '../components/TaskList';
 import TaskForm from '../components/TaskForm';
+
+//const TaskList = React.lazy(() => import('../components/TaskList'));
 TaskPage.propTypes = {
 
 }
@@ -20,6 +22,10 @@ function TaskPage(props) {
                                                 <TaskForm/>
                                               </div>
                                             </div> : null;
+  // const TaskListEl = useCallback(() => {
+  //   console.log('tasklist render!!!')
+  // return <TaskList wordSearch ={wordSearch}/>;
+  // }, [wordSearch]);
   return (
     <div className="container">
       <div className="row">
@@ -35,7 +41,9 @@ function TaskPage(props) {
         </div>
       </div>
       {formAddTask}
-      <TaskList wordSearch ={wordSearch}/>
+        <TaskList wordSearch ={wordSearch}/>
+
+      {/* <TaskListEl/> */}
 
     </div>
 

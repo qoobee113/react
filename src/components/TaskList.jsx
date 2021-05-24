@@ -7,7 +7,6 @@ const TaskList = React.memo(function TaskList(props){
     const listTask = useSelector(state => state.task.listTasks);
     const dispatch = useDispatch();
     const wordSearch = props.wordSearch;
-
     useEffect(()=>{
         const getTasks = ()=>{
             const action = actions.getListTasksRequest();
@@ -16,11 +15,18 @@ const TaskList = React.memo(function TaskList(props){
         getTasks();
     },[dispatch]);
 
-
+    useEffect(()=>{
+        //props.loading(false);
+        console.log('did mount!')
+    },[])
+    
     const listItem =  wordSearch === "" ? listTask.map((ele,index) =>{
-        return <TaskItem key={index} item={ele}/>
+        return <TaskItem key={ele.id} item={ele}/>
     }) : listTask.filter(ele => ele.name.includes(wordSearch)).map((ele,index) =>{
-        return <TaskItem key={index} item={ele}/>})
+        return <TaskItem key={ele.id} item={ele}/>
+    })
+
+    console.log(listItem)
 
     return (
         <div className="row list">
