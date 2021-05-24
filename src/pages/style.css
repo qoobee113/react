@@ -1,0 +1,52 @@
+
+ul{
+    list-style-type: none; 
+    margin: 0;
+    padding: 0;
+}
+.list{
+    padding-top: 30px;
+}
+.list>div:nth-child(2){
+    border: 1px solid red;
+    background-color: lightgrey;
+    border-radius: 5px;
+}
+.header{
+    padding: 20px;
+    text-align: center;
+}
+.list-task{
+    padding: 5px 0px;
+    display: flex;
+    text-align: center;
+}
+.list-task > li:nth-child(2){
+    width: 20%;
+}
+.list-task > li:first-child{
+    width: 40%;
+}
+.list-task > li:last-child{
+    width: 40%;
+}
+.action{
+    display: flex;
+    justify-content: center;
+}
+.add{
+    display: flex;
+}
+.add>div:first-child{
+    margin-right: 20px;
+}
+.add>div:nth-child(2){
+    margin-right: 20px;
+}
+.bt-submit{
+    height: 50%;
+    margin-top: 32px;
+}
+.action button {
+    margin-right: 30px;
+}
